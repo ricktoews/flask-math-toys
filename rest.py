@@ -1,8 +1,9 @@
 import sys
-sys.path.append('./math_toys')
 
 from flask import Flask
+from flask import jsonify
 
+sys.path.append('./math_toys')
 from math_toys import tri
 from math_toys import phi
 
@@ -29,5 +30,5 @@ def nth_phi(n):
 
 @app.route("/n_phis/<int:n>")
 def first_n_phis(n):
-	_phis = str(phi.first_n(n))
+	_phis = jsonify(phi.first_n(n))
 	return _phis
